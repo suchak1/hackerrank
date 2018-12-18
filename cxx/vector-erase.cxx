@@ -3,63 +3,33 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include <cassert>
 using namespace std;
-
-// Write your Student class here
-class Student
-{
-    private:
-        vector<int> scores;
-
-    public:
-        void input()
-        {
-            for(int i = 0; i < 5; i++)
-            {
-                int a;
-                cin >> a;
-                scores.push_back(a);
-            }
-        }
-
-        int calculateTotalScore()
-        {
-            int sum = 0;
-
-            for(int i = 0; i < 5; i++)
-            {
-                sum += scores[i];
-            }
-
-            return sum;
-        }
-};
 
 
 int main() {
-    int n; // number of students
-    cin >> n;
-    Student *s = new Student[n]; // an array of n students
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+
+    int size;
+    cin >> size;
+    vector<int> vec(size);
+
+    for(int i = 0; i < size; i++)
+        cin >> vec[i];
+
+    int pos;
+    cin >> pos;
+
+    vec.erase(vec.begin() + pos - 1);
+
+    int begin, end;
+    cin >> begin >> end;
+
+    vec.erase(vec.begin() + begin - 1, vec.begin() + end - 1);
+
+    cout << vec.size() << "\n";
     
-    for(int i = 0; i < n; i++){
-        s[i].input();
-    }
+    for(int i : vec)
+        cout << i << " ";
 
-    // calculate kristen's score
-    int kristen_score = s[0].calculateTotalScore();
-
-    // determine how many students scored higher than kristen
-    int count = 0; 
-    for(int i = 1; i < n; i++){
-        int total = s[i].calculateTotalScore();
-        if(total > kristen_score){
-            count++;
-        }
-    }
-
-    // print result
-    cout << count;
-    
     return 0;
 }
