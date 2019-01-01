@@ -72,7 +72,7 @@ SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* head) {
 
     SinglyLinkedListNode* temp = head;
 
-    while(temp && temp->next)
+    while(temp->next)
     {
         if(temp->data == temp->next->data)
             temp->next = temp->next->next;
