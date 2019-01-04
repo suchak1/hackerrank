@@ -7,7 +7,8 @@ vector<string> split_string(string);
 // Complete the breakingRecords function below.
 vector<int> breakingRecords(vector<int> scores) {
 
-    int max = scores[0], min = scores[0], breakMax = 0, breakMin = 0;
+    int max, min, breakMax, breakMin;
+    max = min = scores[0], breakMax = breakMin = 0;
     vector<int> v;
 
     for(auto x : scores)
