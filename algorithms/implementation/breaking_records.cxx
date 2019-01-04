@@ -29,7 +29,6 @@ vector<int> breakingRecords(vector<int> scores) {
     v.push_back(breakMin);
 
     return v;
-
 }
 
 int main()
